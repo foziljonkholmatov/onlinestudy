@@ -1,20 +1,26 @@
+from courses import list_courses
+from purchase import buy_course, list_user_courses
+from message import send_message
+
 def user_menu(username):
-    print(f"Welcome, {username}!\n")
-    print("""
-1. Show courses
-2. Buy course
-3. Send message to teacher
-4. Logout
-""")
     while True:
+        print("""
+1. Show all courses
+2. Buy course
+3. Show my courses
+4. Send message to teacher
+5. Logout
+""")
         choice = input("Select: ")
         if choice == "1":
-            print("Courses shown...")
+            list_courses()
         elif choice == "2":
-            print("Course buying simulation...")
+            buy_course(username)
         elif choice == "3":
-            print("Messaging...")
+            list_user_courses(username)
         elif choice == "4":
+            send_message()
+        elif choice == "5":
             print("Logged out.")
             break
         else:
